@@ -1,0 +1,42 @@
+﻿@model List<BarberShop.Models.Service>
+
+@{
+    ViewData["Title"] = "Service Menu";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Service Menu</h1>
+
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Time</th>
+                <th scope="col">Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var service in Model)
+            {
+                <tr>
+                    <td>@service.SName</td>
+                    <td>@service.Time</td>
+                    <td>@service.Cost</td>
+                    <td>
+                        <a asp-controller="Service" asp-action="EditService" asp-route-id="@service.ServiceId" class="btn btn-primary">Edit</a>
+                        <form asp-controller="Service" asp-action="DeleteService" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@service.ServiceId" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p class="text-center">
+        <a asp-controller="Service" asp-action="AddService" class="btn btn-primary">Add New Service</a>
+    </p>
+</div>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarberShop", "BarberShop.csproj", "{D3C98ABE-4FBF-479D-985D-C8D55F181A8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTests", "..\ShopTests\ShopTests.csproj", "{4228D426-2F9F-4344-B5F8-B91BC1E3F6CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3C98ABE-4FBF-479D-985D-C8D55F181A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C98ABE-4FBF-479D-985D-C8D55F181A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C98ABE-4FBF-479D-985D-C8D55F181A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C98ABE-4FBF-479D-985D-C8D55F181A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4228D426-2F9F-4344-B5F8-B91BC1E3F6CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4228D426-2F9F-4344-B5F8-B91BC1E3F6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4228D426-2F9F-4344-B5F8-B91BC1E3F6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4228D426-2F9F-4344-B5F8-B91BC1E3F6CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63C0C0FF-4684-4072-B529-9814AAAB8E6B}
+	EndGlobalSection
+EndGlobal

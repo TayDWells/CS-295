@@ -1,0 +1,25 @@
+﻿@model BarberShop.Models.Service
+
+@{
+    ViewData["Title"] = "Add Service";
+}
+
+<h1>Add Service</h1>
+
+<form asp-controller="Service" asp-action="AddService" method="post">
+    <div>
+        <label for="SName">Service Name:</label>
+        <input type="text" id="SName" name="SName" required />
+    </div>
+    <div>
+        <label for="Time">Time:</label>
+        <input type="number" id="Time" name="Time" required />
+    </div>
+    <div>
+        <label for="Cost">Cost:</label>
+        <input type="number" id="Cost" name="Cost" required />
+    </div>
+    <div>
+        <button type="submit">Add Service</button>
+    </div>
+</form>

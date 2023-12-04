@@ -1,0 +1,31 @@
+﻿@model BarberShop.Models.Appointment
+
+@{
+    ViewData["Title"] = "Add Appointment";
+}
+
+<h1>Add Appointment</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-controller="Appointment" asp-action="AddAppt" method="post">
+    <div>
+        <label for="ClientId">Client:</label>
+        <select id="ClientId" name="ClientId" asp-items="@(new SelectList(ViewBag.Clients, "ClientId", "Name"))" required>
+            <option value="">Select a client</option>
+        </select>
+    </div>
+    <div>
+        <label for="ServiceId">Service:</label>
+        <select id="ServiceId" name="ServiceId" asp-items="@(new SelectList(ViewBag.Services, "ServiceId", "SName"))" required>
+            <option value="">Select a service</option>
+        </select>
+    </div>
+    <div>
+        <label for="Date">Date:</label>
+        <input type="datetime-local" id="Date" name="Date" required />
+    </div>
+    <div>
+        <button type="submit">Schedule Appointment</button>
+    </div>
+</form>

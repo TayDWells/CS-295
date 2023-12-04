@@ -1,0 +1,54 @@
+﻿@model List<BarberShop.Models.Appointment>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Appointment Calendar</h1>
+
+    <form asp-controller="Appointment" asp-action="Calendar" method="get" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" name="searchString" placeholder="Search appointments..." />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Client Name</th>
+                <th scope="col">Service</th>
+                <th scope="col">Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model)
+            {
+                <tr>
+                    <td>@appointment.Client.Name</td>
+                    <td>@appointment.Service.SName</td>
+                    <td>@appointment.Date.ToString("MM/dd/yyyy hh:mm tt")</td>
+                    <td>
+                        <form asp-controller="Appointment" asp-action="EditAppointment" asp-route-id="@appointment.ApptId" method="get" class="btn-group">
+                            <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                        </form>
+
+                        <form asp-controller="Appointment" asp-action="DeleteAppointment" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@appointment.ApptId" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+
+                        <form asp-controller="Appointment" asp-action="MarkAsCompleted" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@appointment.ApptId" />
+                            <button type="submit" class="btn btn-success btn-sm" @(appointment.Completed ? "disabled" : "")>Mark as Completed</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p class="text-center">
+        <a asp-controller="Appointment" asp-action="AddAppt" class="btn btn-primary">Add New Appointment</a>
+    </p>
+</div>

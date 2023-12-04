@@ -1,0 +1,25 @@
+﻿@model BarberShop.Models.Client
+
+@{
+    ViewData["Title"] = "Add Client";
+}
+
+<h1>Add Client</h1>
+
+<form asp-controller="Client" asp-action="AddClient" method="post">
+    <div>
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name" required />
+    </div>
+    <div>
+        <label for="Pronouns">Pronouns:</label>
+        <input type="text" id="Pronouns" name="Pronouns" />
+    </div>
+    <div>
+        <label for="Number">Number:</label>
+        <input type="text" id="Number" name="Number" />
+    </div>
+    <div>
+        <button type="submit">Add Client</button>
+    </div>
+</form>

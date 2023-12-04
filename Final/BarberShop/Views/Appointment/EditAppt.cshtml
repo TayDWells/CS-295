@@ -1,0 +1,35 @@
+﻿@model BarberShop.Models.Appointment
+
+<h1>Edit Appointment</h1>
+
+<form asp-controller="Appointment" asp-action="UpdateAppointment" method="post">
+    <input type="hidden" asp-for="ApptId" />
+
+    <div>
+        <label for="ClientId">Client:</label>
+        <select id="ClientId" name="ClientId" asp-items="@(new SelectList(ViewBag.Clients, "ClientId", "Name", Model.ClientId))" required>
+            <option value="">Select a client</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="ServiceId">Service:</label>
+        <select id="ServiceId" name="ServiceId" asp-items="@(new SelectList(ViewBag.Services, "ServiceId", "SName", Model.ServiceId))" required>
+            <option value="">Select a service</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="Date">Date:</label>
+        <input type="datetime-local" id="Date" name="Date" value="@Model.Date.ToString("yyyy-MM-ddTHH:mm:ss")" required />
+    </div>
+
+    <div>
+        <label for="Completed">Completed:</label>
+        <input type="checkbox" id="Completed" name="Completed" @(Model.Completed ? "checked" : "") />
+    </div>
+
+    <div>
+        <button type="submit">Update Appointment</button>
+    </div>
+</form>

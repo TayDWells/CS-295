@@ -1,0 +1,46 @@
+﻿@model List<BarberShop.Models.Client>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Client List</h1>
+
+    <form asp-controller="Client" asp-action="List" method="get" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" name="searchString" placeholder="Search clients..." />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Pronouns</th>
+                <th scope="col">Number</th>
+                <th scope="col">Actions</th> 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var client in Model)
+            {
+                <tr>
+                    <td>@client.Name</td>
+                    <td>@client.Pronouns</td>
+                    <td>@client.Number</td>
+                    <td>
+                        <a asp-controller="Client" asp-action="EditClient" asp-route-id="@client.ClientId" class="btn btn-primary">Edit</a>
+                        <form asp-controller="Client" asp-action="DeleteClient" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@client.ClientId" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p class="text-center">
+        <a asp-controller="Client" asp-action="AddClient" class="btn btn-primary">Add New Client</a>
+    </p>
+</div>
